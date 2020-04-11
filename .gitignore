@@ -1,1 +1,3 @@
 api/target/
+docker/app/.ssh/authorized_keys
+

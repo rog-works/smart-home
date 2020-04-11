@@ -5,3 +5,5 @@ services:
     image: smart-home-app:latest
     volumes:
       - ./:/opt/app
+    ports:
+      - 22222:22222
