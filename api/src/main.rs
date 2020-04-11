@@ -7,23 +7,23 @@ fn main() {
 // # 4. シンタックスとセマンティクス
 // ## 変数束縛
 fn syntax_and_semantics() {
-    let x1 = 5;
+    let _x1 = 5; // XXX 接頭辞に「_」を付けると未使用でも警告されない
 
     // ### パターン
-    let (x2, y2) = (1, 2);
+    let (_x2, _y2) = (1, 2);
 
     // ### 型アノテーション
-    let x3: i32 = 5;
-    let x4 = 5; // x4: i32 型推論が効くからあえて書かなくて良い
+    let _x3: i32 = 5;
+    let _x4 = 5; // x4: i32 型推論が効くからあえて書かなくて良い
 
     // ### 可変性
-    let x5 = 5;
+    let _x5 = 5;
     // x = 10; デフォルトでimutableなのでcompile error
-    let mut x6 = 5
-    x6 = 10 // ok
+    let mut _x6 = 5;
+    _x6 = 10; // ok
 
     // ### 束縛を初期化する
-    let x7: i32; // 宣言だけなら警告止まり
+    let _x7: i32; // 宣言だけなら警告止まり
 
     // println!("The value of x7 is: {}", x7); // 初期化しないまま使用するとcompile error
 
@@ -45,10 +45,10 @@ fn syntax_and_semantics() {
     let x9 = 42;
     println!("{}", x9); // 42
 
-    let mut x10: i32 = 1;
-    x10 = 7;
-    let x10 = x10; // imutableになり、7に束縛
+    let mut _x10: i32 = 1;
+    _x10 = 7;
+    let _x10 = _x10; // imutableになり、7に束縛
 
-    let y10 = 4;
-    let y10 = "I can also be bound to text!"; // 違う型に変わる
+    let _y10 = 4;
+    let _y10 = "I can also be bound to text!"; // 違う型に変わる
 }
