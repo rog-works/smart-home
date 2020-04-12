@@ -29,6 +29,8 @@ RUN apt-get install -y curl git
 
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
+RUN echo '. /home/worker/.cargo/env' >> /home/worker/.bashrc
+
 USER worker
 ENV USER=worker
 
